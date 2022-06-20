@@ -7,25 +7,52 @@ const images = [
     'https://mymodernmet.com/wp/wp-content/uploads/2020/02/Landscape-Photographer-of-the-Year-Sander-Grefte.jpg'
     ];
 
-
+let indexElemento=0;
 const imgContainer = document.getElementById('contenitore-immagini');
+const listImg = imgContainer.children;
 
-for(let i=0; i<images.length; i++){
     const newImg= document.createElement('img');
-    newImg.classList.add('d-bloc', 'stile-css', 'w-100');
+    newImg.classList.add('d-block', 'stile-css', 'w-100');
+    newImg.setAttribute('src', images[0]);
+    imgContainer.append(newImg);
+
+for(let i=1; i<images.length; i++){
+    const newImg= document.createElement('img');
+    newImg.classList.add('d-none', 'stile-css', 'w-100');
     newImg.setAttribute('src', images[i]);
     imgContainer.append(newImg);
 }
 
+const btnNext= document.getElementById('next-button');
+const btnPrev= document.getElementById('previous-button');
 
-// const btnNext= document.getElementById('next-button');
-// const btnPrev= document.getElementById('previous-button');
+btnNext.addEventListener('click', function(){
+    
+    listImg[indexElemento].classList.remove('d-block');
+    listImg[indexElemento].classList.add('d-none');
+    indexElemento++;
 
-// btnNext.addEventListener('click', function(){
-//     listImg[indexElemento].classList.remove('d-none');
-//     listImg[indexElemento].classList.add('d-block');
-// });
-// btnPrev.addEventListener('click', function(){
-//     listImg[indexElemento].classList.remove('d-block');
-//     listImg[indexElemento].classList.add('d-none');
-// });
+    if(indexElemento===images.length){
+    indexElemento=0;
+    }
+
+    listImg[indexElemento].classList.remove('d-none');
+    listImg[indexElemento].classList.add('d-block');
+});
+
+
+
+
+btnPrev.addEventListener('click', function(){
+    listImg[indexElemento].classList.remove('d-block');
+    listImg[indexElemento].classList.add('d-none');
+    indexElemento--;
+
+    if(indexElemento===0){
+    indexElemento=images.leght;
+    }
+    
+    listImg[indexElemento].classList.remove('d-none');
+    listImg[indexElemento].classList.add('d-block');
+});
+
