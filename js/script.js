@@ -10,7 +10,7 @@ const images = [
 
 const imgContainer = document.getElementById('contenitore-immagini');
 
-for(let i=0; i<images.length, i++){
+for(let i=0; i<images.length; i++){
     const newImg= document.createElement('img');
     newImg.classList.add('d-bloc', 'stile-css', 'w-100');
     newImg.setAttribute('src', images[i]);
