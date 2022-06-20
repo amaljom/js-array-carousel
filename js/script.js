@@ -53,6 +53,5 @@ btnPrev.addEventListener('click', function(){
     indexElemento--;
     listImg[indexElemento].classList.remove('d-none');
     listImg[indexElemento].classList.add('d-block');
-    
 });
 
