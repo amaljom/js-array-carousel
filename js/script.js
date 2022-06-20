@@ -38,21 +38,21 @@ btnNext.addEventListener('click', function(){
 
     listImg[indexElemento].classList.remove('d-none');
     listImg[indexElemento].classList.add('d-block');
+    
 });
-
-
 
 
 btnPrev.addEventListener('click', function(){
     listImg[indexElemento].classList.remove('d-block');
     listImg[indexElemento].classList.add('d-none');
-    indexElemento--;
-
-    if(indexElemento===0){
-    indexElemento=images.leght;
-    }
     
+    if(indexElemento==0){
+    indexElemento=images.length;
+    }
+
+    indexElemento--;
     listImg[indexElemento].classList.remove('d-none');
     listImg[indexElemento].classList.add('d-block');
+    
 });
 
